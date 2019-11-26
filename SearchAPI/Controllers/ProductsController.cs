@@ -14,10 +14,12 @@ namespace SearchAPI.Controllers
     {   
         private Shirts shirts = new Shirts();
         [HttpGet]
-        [Route("get1")]
-        public string get1()
+        [Route("createShirts/{num}")]
+        public SingleShirt get1(int num)
         {
-            return "get1";
+            Console.WriteLine(num);
+            SingleShirt shirt = shirts.CreateShirt();
+            return shirt;
         }
         
         [Route("get2")]
