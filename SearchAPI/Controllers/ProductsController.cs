@@ -23,7 +23,7 @@ namespace SearchAPI.Controllers
         [Route("get2")]
         public string get2()
         {
-            return "get2";
+            return "get12";
         }
         
     }
