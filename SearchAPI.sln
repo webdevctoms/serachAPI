@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAPI", "SearchAPI\SearchAPI.csproj", "{B23AF792-5849-4573-A825-48528BB073A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B23AF792-5849-4573-A825-48528BB073A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B23AF792-5849-4573-A825-48528BB073A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B23AF792-5849-4573-A825-48528BB073A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B23AF792-5849-4573-A825-48528BB073A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3AE9C60-4065-4B66-9A94-F0B00069A12F}
+	EndGlobalSection
+EndGlobal
