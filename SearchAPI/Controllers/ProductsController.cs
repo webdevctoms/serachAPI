@@ -15,11 +15,17 @@ namespace SearchAPI.Controllers
         private Shirts shirts = new Shirts();
         [HttpGet]
         [Route("createShirts/{num}")]
-        public SingleShirt get1(int num)
+        public Array GetShirts(int num)
         {
+
             Console.WriteLine(num);
-            SingleShirt shirt = shirts.CreateShirt();
-            return shirt;
+            //SingleShirt shirt = shirts.CreateShirt();
+            SingleShirt[] shirtArr = new SingleShirt[num];
+            for(int i = 0;i < num; i++)
+            {
+                shirtArr[i] = shirts.CreateShirt();
+            }
+            return shirtArr;
         }
         
         [Route("get2")]
