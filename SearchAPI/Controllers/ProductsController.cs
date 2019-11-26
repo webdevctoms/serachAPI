@@ -13,13 +13,11 @@ namespace SearchAPI.Controllers
     public class ProductsController : ControllerBase
     {   
         private Shirts shirts = new Shirts();
+        private Pants pants = new Pants();
         [HttpGet]
         [Route("createShirts/{num}")]
         public Array CreateShirts(int num)
         {
-
-            Console.WriteLine(num);
-            //SingleShirt shirt = shirts.CreateShirt();
             SingleShirt[] shirtArr = new SingleShirt[num];
             for(int i = 0;i < num; i++)
             {
@@ -29,9 +27,15 @@ namespace SearchAPI.Controllers
         }
         
         [Route("createPants/{num}")]
-        public string CreatePants(int num)
+        public Array CreatePants(int num)
         {
-            return "get12";
+            SinglePant[] pantArr = new SinglePant[num];
+            for(int i = 0;i < num; i++)
+            {
+                pantArr[i] = pants.CreatePant();
+            }
+
+            return pantArr;
         }
         
     }
