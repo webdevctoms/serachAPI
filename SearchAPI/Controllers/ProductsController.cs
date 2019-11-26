@@ -15,7 +15,7 @@ namespace SearchAPI.Controllers
         private Shirts shirts = new Shirts();
         [HttpGet]
         [Route("createShirts/{num}")]
-        public Array GetShirts(int num)
+        public Array CreateShirts(int num)
         {
 
             Console.WriteLine(num);
@@ -28,8 +28,8 @@ namespace SearchAPI.Controllers
             return shirtArr;
         }
         
-        [Route("get2")]
-        public string get2()
+        [Route("createPants/{num}")]
+        public string CreatePants(int num)
         {
             return "get12";
         }

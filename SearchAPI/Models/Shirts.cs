@@ -7,7 +7,7 @@ namespace SearchAPI.Models
 {
     public class Shirts
     {   //225 possible combinations
-        private string[] colors = { "red", "blue", "yellow", "purple", "green" };
+        private string[] colors = { "Red", "Elue", "Yellow", "Purple", "Green" };
         private string[] sizes = { "X-Large", "Large", "Medium", "Small", "X-Small" };
         private string[] lengths = { "T-Shirt", "Long Sleeve" ,"Tank Top"};
         private string[] genders = { "Male", "Female", "Unisex" };
