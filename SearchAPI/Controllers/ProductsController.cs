@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SearchAPI.Models;
-
+//use basic auth for 
+//so "Basic " + base64 encoded pas and user
 namespace SearchAPI.Controllers
 {
     [Route("api/products")]
@@ -34,7 +35,9 @@ namespace SearchAPI.Controllers
             {
                 pantArr[i] = pants.CreatePant();
             }
-
+            for(int i = 0;)
+            int afterTime = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds);
+            Console.WriteLine("Time after for loop: {0}", afterTime);
             return pantArr;
         }
         

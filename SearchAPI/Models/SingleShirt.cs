@@ -8,6 +8,7 @@ namespace SearchAPI.Models
     public class SingleShirt
     {
         public string Color { get; set; }
+        public string Product_type { get; set; }
         public string Size { get; set; }
         public string Length { get; set; }
         public string Gender { get; set; }
@@ -17,6 +18,7 @@ namespace SearchAPI.Models
             Size = size;
             Length = length;
             Gender = gender;
+            Product_type = "Shirt";
         }
 
         public string GetName()

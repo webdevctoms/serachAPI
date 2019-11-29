@@ -7,6 +7,7 @@ namespace SearchAPI.Models
 {
     public class SinglePant
     {
+        public string Product_type { get; set; }
         public string Type { get; set; }
         public string WaistSize { get; set; }
         public string Gender { get; set; }
@@ -16,6 +17,7 @@ namespace SearchAPI.Models
             Type = type;
             WaistSize = waistSize;
             Gender = gender;
+            Product_type = "Pants";
         }
         public string GetName()
         {
