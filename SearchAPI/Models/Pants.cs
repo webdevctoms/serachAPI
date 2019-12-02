@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace SearchAPI.Models
 {
@@ -27,6 +28,12 @@ namespace SearchAPI.Models
             CreatedPants.Add(pant.GetName());
             return pant;
 
+        }
+
+        public string ConvertToJson(SinglePant pant)
+        {
+            string jsonPant = JsonConvert.SerializeObject(pant);
+            return jsonPant;
         }
     }
 }

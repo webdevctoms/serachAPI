@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace SearchAPI.Models
 {
@@ -29,6 +30,12 @@ namespace SearchAPI.Models
             SingleShirt shirt = new SingleShirt(color, size, length, gender);
             CreatedShirts.Add(shirt.GetName());
             return shirt;
+        }
+
+        public string ConvertToJson(SingleShirt shirt)
+        {
+            string jsonPant = JsonConvert.SerializeObject(shirt);
+            return jsonPant;
         }
     }
 }

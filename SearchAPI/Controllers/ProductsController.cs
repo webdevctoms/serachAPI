@@ -39,15 +39,22 @@ namespace SearchAPI.Controllers
         public Array CreatePants(int num)
         {
             SinglePant[] pantArr = new SinglePant[num];
+            string[] pantJsonStrings = new string[num];
             for (int i = 0;i < num; i++)
             {
                 pantArr[i] = pants.CreatePant();
             }
-            for(int i = 0;i < pantArr.Length; i++)
+
+            for (int i = 0; i < num; i++)
+            {
+                pantJsonStrings[i] = pants.ConvertToJson(pantArr[i]);
+            }
+            for (int i = 0;i < pantJsonStrings.Length; i++)
             {
                 int loopTime = DateTime.UtcNow.Millisecond;
-                Console.WriteLine($"Loop time {loopTime} index: {i}");
-                
+                Console.WriteLine($"Loop time {loopTime} index: {i} {pantJsonStrings[i]}");
+
+
                 Thread.Sleep(1000);
             }
             int afterTime = DateTime.UtcNow.Millisecond;

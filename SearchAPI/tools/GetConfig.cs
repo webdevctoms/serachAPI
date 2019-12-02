@@ -11,13 +11,16 @@ namespace SearchAPI.tools
     {
         public string Pass { get; set; }
         public string Username { get; set; }
+        public string Url { get; set; }
         private string PassString = "pass";
         private string UserString = "username";
+        private string UrlString = "url";
         public GetConfig()
         {
             Dictionary<string, string> configData =  GetData();
             Pass = configData[PassString];
             Username = configData[UserString];
+            Url = configData[UrlString];
         }
 
         private Dictionary<string,string> GetData()
@@ -31,7 +34,7 @@ namespace SearchAPI.tools
                 dynamic data = JsonConvert.DeserializeObject(json);
                 configData.Add(PassString,Convert.ToString(data.pass));
                 configData.Add(UserString, Convert.ToString(data.username));
-                
+                configData.Add(UrlString, Convert.ToString(data.url));
             }
 
             return configData;

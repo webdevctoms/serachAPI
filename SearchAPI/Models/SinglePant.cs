@@ -23,5 +23,7 @@ namespace SearchAPI.Models
         {
             return Gender + " " + Type + " " + WaistSize;
         }
+
+        
     }
 }
