@@ -27,16 +27,6 @@ namespace SearchAPI.Controllers
         private Pants pants = new Pants();
         private GetConfig config = new GetConfig();
         [HttpGet]
-        [Route("createShirts/{num}")]
-        public Array CreateShirts(int num)
-        {
-            SingleShirt[] shirtArr = new SingleShirt[num];
-            for(int i = 0;i < num; i++)
-            {
-                shirtArr[i] = shirts.CreateShirt();
-            }
-            return shirtArr;
-        }
         
         [Route("createPants/{num}")]
         public async Task<Array> CreatePants(int num)
@@ -66,6 +56,37 @@ namespace SearchAPI.Controllers
             int afterTime = DateTime.UtcNow.Millisecond;
             Console.WriteLine("Time after for loop: {0}", afterTime);
             return pantArr;
+        }
+
+        [Route("createShirts/{num}")]
+        public async Task<Array> CreatShirts(int num)
+        {
+            SetHeaders();
+            SingleShirt[] shirtArr = new SingleShirt[num];
+            String[] shirtJsonStrings = new string[num];
+
+            string postUrl = config.Url + "/products/_doc/";
+            for (int i = 0; i < num; i++)
+            {
+                shirtArr[i] = shirts.CreateShirt();
+            }
+
+            for (int i = 0; i < num; i++)
+            {
+                shirtJsonStrings[i] = shirts.ConvertToJson(shirtArr[i]);
+            }
+            Console.WriteLine(shirtJsonStrings[0]);
+            for (int i = 0; i < shirtJsonStrings.Length; i++)
+            {
+                int loopTime = DateTime.UtcNow.Millisecond;
+                Console.WriteLine($"Loop time {loopTime} index: {i} {shirtJsonStrings[i]}");
+                var response = await client.PostAsync(postUrl, new StringContent(shirtJsonStrings[i], Encoding.UTF8, "application/json"));
+                Console.WriteLine($"{response}");
+                //Thread.Sleep(1000);
+            }
+            int afterTime = DateTime.UtcNow.Millisecond;
+            Console.WriteLine("Time after for loop: {0}", afterTime);
+            return shirtArr;
         }
 
         private void SetHeaders()
