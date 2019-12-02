@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SearchAPI.Models;
+using SearchAPI.tools;
+
 
 //use basic auth for 
 //so "Basic " + base64 encoded pas and user
@@ -20,6 +22,7 @@ namespace SearchAPI.Controllers
         private static readonly HttpClient client = new HttpClient();
         private Shirts shirts = new Shirts();
         private Pants pants = new Pants();
+        private GetConfig config = new GetConfig();
         [HttpGet]
         [Route("createShirts/{num}")]
         public Array CreateShirts(int num)
@@ -36,11 +39,6 @@ namespace SearchAPI.Controllers
         public Array CreatePants(int num)
         {
             SinglePant[] pantArr = new SinglePant[num];
-            var pass = Environment.GetEnvironmentVariables();
-            foreach (DictionaryEntry de in pass)
-            {
-                Console.WriteLine("  {0} = {1}", de.Key, de.Value);
-            }
             for (int i = 0;i < num; i++)
             {
                 pantArr[i] = pants.CreatePant();
